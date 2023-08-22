@@ -2,7 +2,7 @@
  * @Author: lijun.zhu@huijie-inc.com
  * @Date: 2023-08-21 10:04:48
  * @LastEditors: lijun.zhu@huijie-inc.com
- * @LastEditTime: 2023-08-21 15:48:51
+ * @LastEditTime: 2023-08-22 10:14:47
  * @Description:
  */
 'use strict';
@@ -53,7 +53,7 @@ class SentryController extends Controller {
 
     const result = await axios({
       url: 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=9dbba44d-bb37-43f6-9f26-6d8eb4ab9b0c',
-      method: 'POST',
+      method: 'GET',
       headers: {
         'content-type': 'application/json',
       },
