@@ -2,7 +2,7 @@
  * @Author: lijun.zhu@huijie-inc.com
  * @Date: 2023-08-21 10:04:48
  * @LastEditors: lijun.zhu@huijie-inc.com
- * @LastEditTime: 2023-08-22 10:18:42
+ * @LastEditTime: 2023-08-22 14:16:50
  * @Description:
  */
 'use strict';
@@ -38,7 +38,8 @@ class SentryController extends Controller {
     const { request: { body } } = ctx;
     const error = body.data && body.data.error || {};
 
-    ctx.logger.info(body);
+    ctx.logger.info('body',body);
+    ctx.logger.info('error',error);
 
     const ROBOT_DATA = {
       msgtype: 'markdown',
