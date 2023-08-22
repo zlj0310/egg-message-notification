@@ -2,7 +2,7 @@
  * @Author: lijun.zhu@huijie-inc.com
  * @Date: 2023-08-21 10:04:48
  * @LastEditors: lijun.zhu@huijie-inc.com
- * @LastEditTime: 2023-08-22 15:32:06
+ * @LastEditTime: 2023-08-22 15:33:39
  * @Description:
  */
 'use strict';
@@ -42,7 +42,7 @@ class SentryController extends Controller {
         content: `<font color=\"warning\">${'error'}</font>发生错误:
                   > 错误原因: <font color=\"info\">${error.title}</font>
                   > 错误时间: <font color=\"info\">${fmtDateTime()}</font>
-                  > 错误级别: <font color=\"${error.level === 'error' ? '#FF0000' : '#008000'}\">${error.level}</font>
+                  > 错误级别: <font color=\"${error.level === 'error' ? '#FF0000' : '#D99E37'}\">${error.level}</font>
                   > 错误链接: [查看日志](${error.web_url})`,
       },
     };
