@@ -2,7 +2,7 @@
  * @Author: lijun.zhu@huijie-inc.com
  * @Date: 2023-08-21 10:04:48
  * @LastEditors: lijun.zhu@huijie-inc.com
- * @LastEditTime: 2023-08-22 14:29:30
+ * @LastEditTime: 2023-08-22 15:30:18
  * @Description:
  */
 'use strict';
@@ -17,16 +17,11 @@ const CircularJSON = require('circular-json');
 const fmtDateTime = () => {
   const date = new Date();
 
-  const year = date.getFullYear();
-  let month = date.getMonth() + 1;
-  let hour = date.getHours();
-  let min = date.getMinutes();
+  const month = String(date.getMonth() + 1).padStart(2,'0');
+  const hour = String(date.getHours()).padStart(2,'0');
+  const minute = String(date.getMinutes()).padStart(2,'0');
 
-  month = month < 10 ? `0${month}` : month;
-  hour = hour < 10 ? `0${hour}` : hour;
-  min = min < 10 ? `0${min}` : min;
-
-  return `${year}-${month}-${date.getDate()} ${hour}:${min}`;
+  return `${date.getFullYear()}-${month}-${date.getDate()} ${hour}:${minute}`;
 };
 
 class SentryController extends Controller {
@@ -53,7 +48,7 @@ class SentryController extends Controller {
       },
     };
 
-    const result = await axios({
+    const result = error.title && await axios({
       url: 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=9dbba44d-bb37-43f6-9f26-6d8eb4ab9b0c',
       method: 'POST',
       headers: {
